@@ -6,12 +6,7 @@ import { Box, Button, IconButton, Paper } from '@mui/material';
 import { UserSwitchOutlined } from '@ant-design/icons';
 import { PeopleOutline } from '@mui/icons-material';
 
-function preventDefault(event) {
-  event.preventDefault();
-}
-
-
-export const SystemUsers = () => {
+export default function SystemUsers(){
   return (
 <Fragment>
   <Box display="flex" alignItems="center" justifyContent="space-between">

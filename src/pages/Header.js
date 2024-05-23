@@ -2,7 +2,7 @@ import { FileUploadOutlined, Search } from '@mui/icons-material';
 import FilterListOutlinedIcon from '@mui/icons-material/FilterListOutlined';
 import { Button, Grid, InputAdornment, Paper, TextField } from "@mui/material";
 
-export const Headers = () => {
+export default function  Headers(){
 
     return (
 <Grid item xs={12} md={4} lg={12}>
