@@ -5,7 +5,7 @@ import ListItemText from '@mui/material/ListItemText';
 import DashboardIcon from '@mui/icons-material/Dashboard';
 import { Layers, TvRounded } from '@mui/icons-material';
 
-export const MainListItems = (props) => {
+export default function MainListItems(props){
    
  return (
   <Fragment>

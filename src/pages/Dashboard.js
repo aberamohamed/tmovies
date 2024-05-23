@@ -16,7 +16,7 @@ import Paper from "@mui/material/Paper";
 import Menu from "@mui/icons-material/Menu";
 import { ChevronLeft, Circle } from "@mui/icons-material";
 import { Notifications } from "@mui/icons-material";
-import { MainListItems } from "./SideBar";
+import MainListItems from "./SideBar";
 import { LineCharts, PieCharts } from "./Chart";
 import SystemUsers, { Programs, Channel } from "./Deposits";
 import  Headers  from "./Header";
