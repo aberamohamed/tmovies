@@ -1,0 +1,74 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model audit_logs {
+  id               Int       @id @default(autoincrement())
+  transaction_type String?   @db.Text
+  transaction_id   Int?
+  entity           String?   @db.VarChar(50)
+  query_type       String?   @db.VarChar(20)
+  created_by       Int?
+  created_at       DateTime? @db.DateTime(0)
+  updated_at       DateTime? @db.DateTime(0)
+  user_agent       String?   @db.Text
+  priority         Int?
+
+  @@index([created_by], map: "created_by")
+}
+
+model modules {
+  id          Int      @id @default(autoincrement())
+  parent_id   Int?
+  sno         Int?
+  module_name String   @db.VarChar(255)
+  link        String?  @db.VarChar(255)
+  icon        String?  @db.VarChar(255)
+  type        String   @db.VarChar(20)
+  menu        Boolean?
+  thumbnail   Boolean?
+  crud        Boolean? @default(false)
+}
+
+model modules_default {
+  id        Int  @id @default(autoincrement())
+  group_id  Int?
+  module_id Int?
+}
+
+model modules_group {
+  id          Int     @id @default(autoincrement())
+  description String? @db.VarChar(100)
+  active      Int?    @db.TinyInt
+}
+
+model modules_users {
+  id        Int      @id @default(autoincrement())
+  module_id Int?
+  user_id   Int
+  uadd      Boolean?
+  uedit     Boolean?
+  udelete   Boolean?
+}
+
+model users {
+  id         Int      @id @default(autoincrement())
+  username   String   @db.VarChar(50)
+  password   String   @db.Text
+  user_id    String   @db.VarChar(20)
+  admin      Boolean
+  type       String?  @db.VarChar(10)
+  email      String?  @db.VarChar(100)
+  lang       Int?     @default(0) @db.TinyInt
+  browser_id String?  @default("0") @db.VarChar(200)
+  ip_address String?  @db.VarChar(30)
+  active     Boolean?
+
+  @@index([username], map: "un")
+  @@index([user_id], map: "user_id")
+}
