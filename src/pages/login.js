@@ -8,18 +8,12 @@ import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 
-
 const defaultTheme = createTheme();
 
 export default function Login(props) {
-  const handleSubmit = (event) => {
+  const handleLogin = (event) => {
     event.preventDefault();
     props.setRenderedComponent("dashboard")
-    // const data = new FormData(event.currentTarget);
-    // console.log({
-    //   email: data.get('email'),
-    //   password: data.get('password'),
-    // });
   };
 
   return (
@@ -27,18 +21,32 @@ export default function Login(props) {
       <Grid container component="main" sx={{ height: '100vh' }}>
         <CssBaseline />
         <Grid
-          item
-          xs={false}
-          sm={4}
-          md={7}
-          sx={{
-            backgroundImage: '',
-            backgroundRepeat: 'no-repeat',
-            backgroundColor:"black",
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-          }}
-        />
+  item
+  xs={false}
+  sm={4}
+  md={7}
+  sx={{
+    backgroundImage: '',
+    backgroundRepeat: 'no-repeat',
+    backgroundColor: 'black',
+    backgroundSize: 'cover',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+  }}
+>
+  <Box
+    component="img"
+    src="logo.webp"
+    alt="Your Image"
+    sx={{
+      maxWidth: '50%',
+      height: '50%',
+    }}
+  />
+</Grid>
+
+
         <Grid item xs={12} sm={4} md={5} component={Paper} elevation={6} square>
           <Box
             sx={{
@@ -52,7 +60,7 @@ export default function Login(props) {
             <Typography component="h1" variant="h5" fontWeight={"bold"} fontSize={35}>
               LOGIN
             </Typography>
-            <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 1 }}>
+            <Box component="form" noValidate onSubmit={handleLogin} sx={{ mt: 1 }}>
               <TextField
                 margin="normal"
                 required
@@ -78,7 +86,7 @@ export default function Login(props) {
                 fullWidth
                 variant="contained"
                 sx={{ mt: 3, mb: 2, backgroundColor:'black' }}
-                onClick={() => handleSubmit(event)}
+                onClick={() => handleLogin(event)}
               >
                 Login
               </Button>

@@ -17,9 +17,9 @@ import Menu from "@mui/icons-material/Menu";
 import { ChevronLeft, Circle } from "@mui/icons-material";
 import { Notifications } from "@mui/icons-material";
 import MainListItems from "./SideBar";
-import PieCharts, { LineCharts} from "./Chart";
+import PieCharts, { LineCharts } from "./Chart";
 import SystemUsers, { Programs, Channel } from "./Deposits";
-import  Headers  from "./Header";
+import Headers from "./Header";
 import { Card, TextField } from "@mui/material";
 import ChannelList from "./Channels";
 import ProgramList from "./Program";
@@ -74,7 +74,7 @@ const defaultTheme = createTheme();
 
 export default function Dashboard(props) {
   const [open, setOpen] = React.useState(true);
-  const [renderedComponent, setRenderedComponent] =  React.useState("dashboard");
+  const [renderedComponent, setRenderedComponent] = React.useState("dashboard");
   const toggleDrawer = () => {
     setOpen(!open);
   };
@@ -135,21 +135,27 @@ export default function Dashboard(props) {
               px: [1],
             }}
           >
-                <Box
-      component="img"
-      src="logo.webp"
-      alt="Your Image"
-      sx={{
-        maxWidth: '30%',
-        height: 'auto',
-      }}
-    /><b style={{fontWeight:'bold', fontSize: 25}}>T-Movie</b>
+            <Box
+              component="img"
+              src="logo.webp"
+              alt="Your Image"
+              sx={{
+                maxWidth: "30%",
+                height: "auto",
+              }}
+            />
+            <b style={{ fontWeight: "bold", fontSize: 25 }}>T-Movie</b>
             <IconButton onClick={toggleDrawer}>
               <ChevronLeft />
             </IconButton>
           </Toolbar>
           <Divider />
-          <List component="nav"><MainListItems renderedComponent = {renderedComponent} setRenderedComponent = {setRenderedComponent}/></List>
+          <List component="nav">
+            <MainListItems
+              renderedComponent={renderedComponent}
+              setRenderedComponent={setRenderedComponent}
+            />
+          </List>
         </Drawer>
         <Box
           component="main"
@@ -177,122 +183,121 @@ export default function Dashboard(props) {
             >
               <Headers />
               <br></br>
-              {renderedComponent && renderedComponent === "dashboard" &&
-                            <React.Fragment>
-                            <Grid container spacing={2}>
-                              <Grid item xs={12} md={4} lg={4}>
-                                <Paper
-                                  sx={{
-                                    p: 2,
-                                    display: "flex",
-                                    flexDirection: "column",
-                                    height: 180,
-                                    right: 10,
-                                  }}
-                                  elevation={5}
-                                >
-                                  <SystemUsers />
-                                </Paper>
-                              </Grid>
-                              <Grid item xs={12} md={4} lg={4}>
-                                <Paper
-                                  sx={{
-                                    p: 2,
-                                    display: "flex",
-                                    flexDirection: "column",
-                                    height: 180,
-                                  }}
-                                  elevation={5}
-                                >
-                                  <Programs />
-                                </Paper>
-                              </Grid>
-                              <Grid item xs={12} md={3} lg={4}>
-                                <Paper
-                                  sx={{
-                                    p: 2,
-                                    display: "flex",
-                                    flexDirection: "column",
-                                    height: 180,
-                                  }}
-                                  elevation={5}
-                                >
-                                  <Channel />
-                                </Paper>
-                              </Grid>
-                            </Grid>
-                            <br></br>
-                            <Grid container spacing={2}>
-                              <Grid item xs={8} md={4} lg={9}>
-                                <Card
-                                  sx={{
-                                    p: 2,
-                                    display: "flex",
-                                    flexDirection: "column",
-                                    height: 48,
-                                    width: 220,
-                                    backgroundColor: "#000222",
-                                    color: "white",
-                                  }}
-                                >
-                                  <text>Program On Category</text>
-                                </Card>
-                                <Paper
-                                  sx={{
-                                    p: 2,
-                                    display: "flex",
-                                    flexDirection: "column",
-                                    height: 240,
-                                  }}
-                                  elevation={5}
-                                >
-                                  <PieCharts />
-                                </Paper>
-                              </Grid>
-                            </Grid>
-                            <br></br>
-                            <Grid container spacing={2}>
-                              <Grid item xs={12} md={4} lg={12}>
-                                <Card
-                                  sx={{
-                                    p: 2,
-                                    display: "flex",
-                                    flexDirection: "column",
-                                    height: 48,
-                                    width: 220,
-                                    backgroundColor: "#000222",
-                                    color: "white",
-                                  }}
-                                >
-                                  <text>Program With Type</text>
-                                </Card>
-                                <Paper
-                                  sx={{
-                                    p: 2,
-                                    display: "flex",
-                                    flexDirection: "column",
-                                    height: 240,
-                                  }}
-                                  elevation={5}
-                                >
-                                  <LineCharts />
-                                </Paper>
-                              </Grid>
-                            </Grid>
-                          </React.Fragment>
-              }
-                            {renderedComponent && renderedComponent === "channel" &&
-                            <React.Fragment>
-<ChannelList/>
-                          </React.Fragment>
-              }
+              {renderedComponent && renderedComponent === "dashboard" && (
+                <React.Fragment>
+                  <Grid container spacing={2}>
+                    <Grid item xs={12} md={4} lg={4}>
+                      <Paper
+                        sx={{
+                          p: 2,
+                          display: "flex",
+                          flexDirection: "column",
+                          height: 180,
+                          right: 10,
+                        }}
+                        elevation={5}
+                      >
+                        <SystemUsers />
+                      </Paper>
+                    </Grid>
+                    <Grid item xs={12} md={4} lg={4}>
+                      <Paper
+                        sx={{
+                          p: 2,
+                          display: "flex",
+                          flexDirection: "column",
+                          height: 180,
+                        }}
+                        elevation={5}
+                      >
+                        <Programs />
+                      </Paper>
+                    </Grid>
+                    <Grid item xs={12} md={3} lg={4}>
+                      <Paper
+                        sx={{
+                          p: 2,
+                          display: "flex",
+                          flexDirection: "column",
+                          height: 180,
+                        }}
+                        elevation={5}
+                      >
+                        <Channel />
+                      </Paper>
+                    </Grid>
+                  </Grid>
+                  <br></br>
+                  <Grid container spacing={2}>
+                    <Grid item xs={8} md={4} lg={9}>
+                      <Card
+                        sx={{
+                          p: 2,
+                          display: "flex",
+                          flexDirection: "column",
+                          height: 48,
+                          width: 220,
+                          backgroundColor: "#000222",
+                          color: "white",
+                        }}
+                      >
+                        <text>Program On Category</text>
+                      </Card>
+                      <Paper
+                        sx={{
+                          p: 2,
+                          display: "flex",
+                          flexDirection: "column",
+                          height: 240,
+                        }}
+                        elevation={5}
+                      >
+                        <PieCharts />
+                      </Paper>
+                    </Grid>
+                  </Grid>
+                  <br></br>
+                  <Grid container spacing={2}>
+                    <Grid item xs={12} md={4} lg={12}>
+                      <Card
+                        sx={{
+                          p: 2,
+                          display: "flex",
+                          flexDirection: "column",
+                          height: 48,
+                          width: 220,
+                          backgroundColor: "#000222",
+                          color: "white",
+                        }}
+                      >
+                        <text>Program With Type</text>
+                      </Card>
+                      <Paper
+                        sx={{
+                          p: 2,
+                          display: "flex",
+                          flexDirection: "column",
+                          height: 240,
+                        }}
+                        elevation={5}
+                      >
+                        <LineCharts />
+                      </Paper>
+                    </Grid>
+                  </Grid>
+                </React.Fragment>
+              )}
+              {renderedComponent && renderedComponent === "channel" && (
+                <React.Fragment>
+                  <ChannelList />
+                </React.Fragment>
+              )}
 
-{renderedComponent && renderedComponent === "program" &&
-                            <React.Fragment>
-<ProgramList/>
-                          </React.Fragment>
-              }
-
+              {renderedComponent && renderedComponent === "program" && (
+                <React.Fragment>
+                  <ProgramList />
+                </React.Fragment>
+              )}
             </Paper>
           </Container>
         </Box>
